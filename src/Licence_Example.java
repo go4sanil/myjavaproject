@@ -1,42 +1,92 @@
+import javax.swing.DefaultBoundedRangeModel;
 
 public class Licence_Example {
 
 	public static void main(String[] args) {
 
-		int age = 19; // [input age of person]
-		String licenseLevel = "G2";
+		int priceSmallPizza = 15;
+		int priceMediumPizza = 20;
+		int priceLargePizza = 25;
+		int pepperoniSmallPizza = 2;
+		int pepperoniMediumAndLargePizza = 3;
+		int extraCheese = 1;
 
-		if (age >= 16 && licenseLevel == "G" ) {
-			System.out.println("License is reissued");
-		} else if (age >= 16 && licenseLevel == "G1") {
-			System.out.println("G2 license is issued");
-		} else if (age >= 16 && licenseLevel == "G2") {
-			System.out.println("G license is issued");
-		} else if (age >= 16 && licenseLevel == "No License") {
-			System.out.println("New license is issued");
-		} else {
-			System.out.println("License in not issued");
+		String pizzaOrder = "mediumPizza";
+		boolean pepperoniOrder = true;
+		boolean cheeseOrder = true;
+
+		switch (pizzaOrder) {
+		case "smallPizza": {
+			if (cheeseOrder && pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza + extraCheese));
+				break;
+			}
+
+			else if (cheeseOrder && !pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceSmallPizza + extraCheese));
+				break;
+			}
+
+			else if (!cheeseOrder && pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza));
+				break;
+			}
+
+			else {
+				System.out.println("Your final bill is:" + (priceSmallPizza));
+				break;
+			}
 		}
 
-		/*
-		 * int num1 = 30; int num2 = 30; if(num1%3==0 && num2%3==0)
-		 * {System.out.println("Both the numbers are visible by 3");} else if (num1%3==0
-		 * && num2%3!=0) {System.out.println(num1 +"is divisible by 3 but"+" "+ num2
-		 * +"is not divisible by 3");} else if ((num1%3!=0 && num2%3==0))
-		 * {System.out.println(num2 +"is divisible by 3 but"+" "+ num1
-		 * +"is not divisible by 3");} else
-		 * {System.out.println("Both the numbers are not visible by 3");}
-		 */
+		case "mediumPizza": {
 
-		/*int len_rec = 10;
-		int brdh_rec = 20;
+			if (cheeseOrder && pepperoniOrder) {
+				System.out.println(
+						"Your final bill is:" + (priceMediumPizza + pepperoniMediumAndLargePizza + extraCheese));
+				break;
+			}
 
-		int var_rec = 2 * (len_rec + brdh_rec);
-		System.out.println("The perimeter of the rectangle is  :" + var_rec);
+			else if (cheeseOrder && !pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceMediumPizza + extraCheese));
+				break;
+			}
 
-		var_rec = len_rec * brdh_rec;
-		System.out.println("The area of the rectangle is   :" + var_rec);*/
+			else if (!cheeseOrder && pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceMediumPizza + pepperoniMediumAndLargePizza));
+				break;
+			}
 
+			else {
+				System.out.println("Your final bill is:" + (priceMediumPizza));
+				break;
+			}
+		}
+
+		case "largePizza": {
+			if (cheeseOrder && pepperoniOrder) {
+				System.out.println(
+						"Your final bill is:" + (priceLargePizza + pepperoniMediumAndLargePizza + extraCheese));
+				break;
+			}
+
+			else if (cheeseOrder && !pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceLargePizza + extraCheese));
+				break;
+			}
+
+			else if (!cheeseOrder && pepperoniOrder) {
+				System.out.println("Your final bill is:" + (priceLargePizza + pepperoniMediumAndLargePizza));
+				break;
+			}
+
+			else {
+				System.out.println("Your final bill is:" + (priceMediumPizza));
+				break;
+			}
+
+		}
+		default:
+			System.out.println("Please check the details of order and try again");
+		}
 	}
-
 }
