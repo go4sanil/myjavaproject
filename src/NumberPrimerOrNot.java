@@ -1,7 +1,7 @@
 /*4.	Write a program to check if the number is prime or not. */
 public class NumberPrimerOrNot {
 	public static void main(String[] args) {
-		int numb = 19;
+		int numb = 1;
 		int count = 0;
 		for (int counter = 2; counter <= numb; counter++) {
 			if (numb % counter == 0) {

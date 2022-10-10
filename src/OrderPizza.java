@@ -17,48 +17,49 @@ public class OrderPizza {
 		int pepperoniMediumAndLargePizza = 3;
 		int extraCheese = 1;
 
-		String pizzaOrder = "mediumPizza";
-		boolean pepperoniOrder = true;
-		boolean cheeseOrder = true;
+		String pizzaOrder = "largePizza";
+		boolean pepperoniOrder = false;
+		boolean cheeseOrder = false;
 
 		switch (pizzaOrder) {
 		case "smallPizza": {
 			if (cheeseOrder && pepperoniOrder) {
-System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza + extraCheese));
-				break;
+				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza + extraCheese));
+
 			}
 
 			else if (cheeseOrder && !pepperoniOrder) {
-System.out.println("Your final bill is:" + (priceSmallPizza + extraCheese));
-				break;
+				System.out.println("Your final bill is:" + (priceSmallPizza + extraCheese));
+
 			}
 
 			else if (!cheeseOrder && pepperoniOrder) {
-System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza));
-				break;
+				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza));
+
 			}
 
 			else {
-System.out.println("Your final bill is:" + (priceSmallPizza));
+				System.out.println("Your final bill is:" + (priceSmallPizza));
 				break;
 			}
 		}
 
 		case "mediumPizza": {
 
-			if (cheeseOrder && pepperoniOrder) {System.out.println(
+			if (cheeseOrder && pepperoniOrder) {
+				System.out.println(
 						"Your final bill is:" + (priceMediumPizza + pepperoniMediumAndLargePizza + extraCheese));
-				break;
+
 			}
 
 			else if (cheeseOrder && !pepperoniOrder) {
 				System.out.println("Your final bill is:" + (priceMediumPizza + extraCheese));
-				break;
+				;
 			}
 
 			else if (!cheeseOrder && pepperoniOrder) {
 				System.out.println("Your final bill is:" + (priceMediumPizza + pepperoniMediumAndLargePizza));
-				break;
+
 			}
 
 			else {
@@ -71,17 +72,17 @@ System.out.println("Your final bill is:" + (priceSmallPizza));
 			if (cheeseOrder && pepperoniOrder) {
 				System.out.println(
 						"Your final bill is:" + (priceLargePizza + pepperoniMediumAndLargePizza + extraCheese));
-				break;
+
 			}
 
 			else if (cheeseOrder && !pepperoniOrder) {
 				System.out.println("Your final bill is:" + (priceLargePizza + extraCheese));
-				break;
+
 			}
 
 			else if (!cheeseOrder && pepperoniOrder) {
 				System.out.println("Your final bill is:" + (priceLargePizza + pepperoniMediumAndLargePizza));
-				break;
+
 			}
 
 			else {
@@ -95,8 +96,4 @@ System.out.println("Your final bill is:" + (priceSmallPizza));
 		}
 	}
 
-
-
-	}
-
-
+}
