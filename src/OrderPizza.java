@@ -1,6 +1,12 @@
-import javax.swing.DefaultBoundedRangeModel;
-
-public class Licence_Example {
+/*9.	Write a program to prepare the bill for a pizza shop.
+a.	Assume an order and work out the final bill.
+b.	Take the Cheese Pizza prices as: Small Pizza: $15, Medium Pizza: $20, Large Pizza: $25
+c.	For additional pepperoni topping: Pepperoni for Small Pizza: +$2, Pepperoni for Medium or Large Pizza: +$3
+d.	Extra cheese for any size pizza: + $1
+For eg: If the Pizza is medium, pepperoni with extra cheese the program should calculate the final bill as 20+3+1 = $24 and print as
+“Your final bill is $24”
+*/
+public class OrderPizza {
 
 	public static void main(String[] args) {
 
@@ -18,30 +24,29 @@ public class Licence_Example {
 		switch (pizzaOrder) {
 		case "smallPizza": {
 			if (cheeseOrder && pepperoniOrder) {
-				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza + extraCheese));
+System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza + extraCheese));
 				break;
 			}
 
 			else if (cheeseOrder && !pepperoniOrder) {
-				System.out.println("Your final bill is:" + (priceSmallPizza + extraCheese));
+System.out.println("Your final bill is:" + (priceSmallPizza + extraCheese));
 				break;
 			}
 
 			else if (!cheeseOrder && pepperoniOrder) {
-				System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza));
+System.out.println("Your final bill is:" + (priceSmallPizza + pepperoniSmallPizza));
 				break;
 			}
 
 			else {
-				System.out.println("Your final bill is:" + (priceSmallPizza));
+System.out.println("Your final bill is:" + (priceSmallPizza));
 				break;
 			}
 		}
 
 		case "mediumPizza": {
 
-			if (cheeseOrder && pepperoniOrder) {
-				System.out.println(
+			if (cheeseOrder && pepperoniOrder) {System.out.println(
 						"Your final bill is:" + (priceMediumPizza + pepperoniMediumAndLargePizza + extraCheese));
 				break;
 			}
@@ -89,4 +94,9 @@ public class Licence_Example {
 			System.out.println("Please check the details of order and try again");
 		}
 	}
-}
+
+
+
+	}
+
+
