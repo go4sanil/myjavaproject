@@ -32,11 +32,6 @@ public class EoiCanada {
 		int finalExperienceScore = ecm.experienceScore(experienceInYears);
 		int finalWorkScore = ecm.educationScore(educationLevel);
 		
-		/*System.out.println(finalAgeScore);
-		System.out.println(finalExperienceScore);
-		System.out.println(finalIeltsScore);
-		System.out.println(finalWorkScore);
-		System.out.println(finalRelativeStudentScore);*/
 		int totalPoints = finalIeltsScore+finalRelativeStudentScore+finalAgeScore+finalExperienceScore+finalWorkScore;
 		
 		System.out.println("Total Points you have scored: "+totalPoints+" Points");
