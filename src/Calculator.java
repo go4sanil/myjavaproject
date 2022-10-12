@@ -1,7 +1,5 @@
 /* 6.	Build a calculator application which uses switch case.    */
 
-
-
 public class Calculator {
 
 	public static void main(String[] args) {
