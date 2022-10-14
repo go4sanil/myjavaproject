@@ -2,7 +2,7 @@
 public class EoiCanadaMethods {
 	int totalScore = 0;
 
-	int ieltsLisScore(float ieltsListeningScore) {
+	int ieltsListeningScore(float ieltsListeningScore) {
 		if (ieltsListeningScore >= 8) {
 			totalScore = 6;
 		} else if (ieltsListeningScore < 8 && ieltsListeningScore >= 7.5) {
@@ -25,15 +25,15 @@ public class EoiCanadaMethods {
 		return totalScore;
 	}
 
-	int relativesStudent(String hasRelatives, String studiedInCanada, String workNocLevel) {
+	int hasRelativesWorkexStudied(String hasRelatives, String studiedInCanada, String workNocLevel) {
 		totalScore = 0;
-		if (hasRelatives.equals("Y")) {
+		if (hasRelatives.equals("y")) {
 			totalScore += 5;
 		}
-		if (studiedInCanada.equals("Y")) {
+		if (studiedInCanada.equals("y")) {
 			totalScore += 5;
 		}
-		if (workNocLevel.equals("Y")) {
+		if (workNocLevel.equals("y")) {
 			totalScore += 10;
 		}
 		return totalScore;
@@ -71,11 +71,11 @@ public class EoiCanadaMethods {
 	}
 
 	int educationScore(String educationLevel) {
-		if (educationLevel.equals("PhD")) {
+		if (educationLevel.equals("phd")) {
 			totalScore = 25;
-		} else if (educationLevel.equals("Masters")) {
+		} else if (educationLevel.equals("masters")) {
 			totalScore = 23;
-		} else if (educationLevel.equals("University degree")) {
+		} else if (educationLevel.equals("universitydegree")) {
 			totalScore = 22;
 		} else {
 			totalScore = 21;
