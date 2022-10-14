@@ -62,7 +62,7 @@ public class EoiCanadaMethods {
 	int experienceScore(int experienceInYears) {
 		if (experienceInYears >= 6) {
 			totalScore = 15;
-		} else if (totalScore == 4 || totalScore == 5) {
+		} else if (experienceInYears >= 4 || experienceInYears <= 5) {
 			totalScore = 13;
 		} else {
 			totalScore = 0;

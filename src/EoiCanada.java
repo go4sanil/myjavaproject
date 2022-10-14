@@ -35,12 +35,12 @@ public class EoiCanada {
 
 		System.out.println("Enter your experience in years");
 		int experienceInYears = scn.nextInt();
-		while ((experienceInYears <= 0) || (experienceInYears >= 100)) {
+		while ((experienceInYears < 0) || (experienceInYears > 100)) {
 			System.out.println("The data you have entered is invaid; Please try again");
 			experienceInYears = scn.nextInt();
 			workExpereinceCounter++;
 
-			if (((experienceInYears >= 0) || (experienceInYears <= 100)) && workExpereinceCounter >= 2) {
+			if (((experienceInYears > 0) || (experienceInYears < 100)) && workExpereinceCounter >= 2) {
 				System.out.println("Program terminated, please talk to customer desk");
 				System.exit(0);
 			}}
@@ -121,7 +121,7 @@ public class EoiCanada {
 					studiedInCanada = scn.next().toLowerCase();
 					hasstudiedInCanadaCounter++;
 
-					if (!(studiedInCanada.equals("y")) && !studiedInCanada.equals("n") && hasRelativesCounter >= 2) {
+					if (!(studiedInCanada.equals("y")) && !studiedInCanada.equals("n") && hasstudiedInCanadaCounter >= 2) {
 						System.out.println("Program terminated, please talk to customer desk");
 						System.exit(0);
 					}}
