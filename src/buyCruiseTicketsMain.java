@@ -33,7 +33,7 @@ public class BuyCruiseTicketsMain {
 								+ "Price for Adults(greater than 12): " + buyCruiseTicket[i].cruisePriceForAdults
 								+ " per day\r\n" + "Price for kids above 5: "
 								+ buyCruiseTicket[i].cruisePriceForchildren + " per day\r\n"
-								+ "Please press Y if you want to continue with the selection or press any other alphabet to select another.");
+								+ "Please press 'Y' if you want to continue with the selection or press any other key to select another.");
 						cruiseYesOrNoInput = scn.next();
 
 						finalcruisePriceForAdults = buyCruiseTicket[i].cruisePriceForAdults;
@@ -62,7 +62,7 @@ public class BuyCruiseTicketsMain {
 			}
 		}
 		System.out.println(
-				"All our cruises have food service on board. Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids?");
+				"All our cruises have food service on board. Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids? Please press 'Y' to order buffet meals or press any other key to proceed with out buffet order");
 		String userInputPreBookBuffet = scn.next();
 
 		if (userInputPreBookBuffet.equals("Y")) 

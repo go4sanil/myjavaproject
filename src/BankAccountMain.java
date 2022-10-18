@@ -18,12 +18,10 @@ public class BankAccountMain {
 		System.out.println("Please enter your pin  :");
 		int accountPin = scn.nextInt();
 		double arrayAccountBalance=0;
-		for( int i=0; i<bankaccount.length;i++)
-		{
-		if(accountNum.equals(bankaccount[i].accountNumber) && (accountPin == bankaccount[i].accountPin))
-				{arrayAccountBalance = bankaccount[i].accountBalance; }
-			System.out.println(arrayAccountBalance);
-			break;
-				}
-
+		
+		AnotherClass anotherclass = new AnotherClass();
+		
+		anotherclass.accountCrednetials(accountNum, accountPin);
+		
+			
 }}

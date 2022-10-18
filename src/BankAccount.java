@@ -13,5 +13,8 @@ public class BankAccount {
 		accountPin = accntPin;
 		
 	}
+	
+	int accountBalanceCheck(String accntname)
+	{return 1;}
 
 }
