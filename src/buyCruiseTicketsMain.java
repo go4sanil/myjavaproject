@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class buyCruiseTicketsMain {
+public class BuyCruiseTicketsMain {
 
 	public static void main(String[] args) {
 
