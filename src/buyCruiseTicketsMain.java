@@ -12,7 +12,9 @@ public class BuyCruiseTicketsMain {
 
 		BuyCruiseTicket[] buyCruiseTicket = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
 
- 		Scanner scn = new Scanner(System.in);
+		BuyCruiseTicket methodsBuyCruiseTicket = new BuyCruiseTicket();
+
+		Scanner scn = new Scanner(System.in);
 		String cruiseYesOrNoInput = null;
 		double finalcruisePriceForAdults = 0;
 		double finalcruisePriceForchildren = 0;
@@ -39,6 +41,7 @@ public class BuyCruiseTicketsMain {
 						finalcruisePriceForAdults = buyCruiseTicket[i].cruisePriceForAdults;
 						finalcruisePriceForchildren = buyCruiseTicket[i].cruisePriceForchildren;
 						noOfDaysOnCruise = buyCruiseTicket[i].cruiseDaysOfStay;
+
 					}
 				}
 			}
@@ -46,37 +49,30 @@ public class BuyCruiseTicketsMain {
 
 		System.out.println("Enter the number of adults: ");
 		int userInputNumOfAdults = scn.nextInt();
+		double finalAdultPrice = methodsBuyCruiseTicket.adultPriceCalculation(finalcruisePriceForAdults,noOfDaysOnCruise, userInputNumOfAdults);
 		System.out.println("Enter the number of children: ");
 		int userInputNumOfChildren = scn.nextInt();
 
-		int childArrayCounter = 0;
-		int[] childArray = new int[userInputNumOfChildren];
-		if (userInputNumOfChildren > 0) {
-			for (int j = 0; (j < (userInputNumOfChildren)); j++) {
-				System.out.println("Enter the age of child " + (j + 1));
-				childArray[j] = scn.nextInt();
-				if (childArray[j] > 5) {
-					childArrayCounter++;
-				}
+		int childArrayCounter = methodsBuyCruiseTicket.childArrayCounterInput(userInputNumOfChildren);
 
-			}
-		}
+		double finalChildrenPrice = methodsBuyCruiseTicket.adultPriceCalculation(finalcruisePriceForchildren,noOfDaysOnCruise, childArrayCounter);
+
 		System.out.println(
 				"All our cruises have food service on board. Do you want to pre-book for dinner buffet meals at 20.99 per day for adults and 4.99 per day for kids? Please press 'Y' to order buffet meals or press any other key to proceed with out buffet order");
 		String userInputPreBookBuffet = scn.next();
 
-		if (userInputPreBookBuffet.equals("Y")) 
-		{
-				buffetMarker = 1;
-			} else 
-			{
-				buffetMarker = 0;
-			}
-		CruiseTotalPriceCalculation pricecalculation = new CruiseTotalPriceCalculation();
-			
-			pricecalculation.adultAndChildPriceCalculation(finalcruisePriceForAdults, finalcruisePriceForchildren,
-					noOfDaysOnCruise, userInputNumOfAdults, userInputNumOfChildren, childArrayCounter, buffetMarker);
+		if (userInputPreBookBuffet.equals("Y")) {
+			buffetMarker = 1;
+		} else {
+			buffetMarker = 0;
 		}
 
+		double finalBuffetAdultPrice = methodsBuyCruiseTicket.adultBuffetPriceCalculation(noOfDaysOnCruise,userInputNumOfAdults, buffetMarker);
+
+		double finalBuffetChildrenPrice = methodsBuyCruiseTicket.childrenBuffetPriceCalculation(noOfDaysOnCruise,childArrayCounter, buffetMarker);
+
+		methodsBuyCruiseTicket.adultAndChildPriceCalculation(finalAdultPrice, finalChildrenPrice, finalBuffetAdultPrice,
+				finalBuffetChildrenPrice, userInputNumOfAdults, childArrayCounter, buffetMarker);
 	}
 
+}
