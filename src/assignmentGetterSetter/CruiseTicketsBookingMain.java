@@ -30,12 +30,11 @@ public class CruiseTicketsBookingMain {
 		cruiseusermodule.setUserRegistrationInfo(emailForUserRegistration, passwordForUserRegistration,
 				nameForUserRegistration, phoneNumberForUserRegistration);
 
-		Object cruiseYesOrNoInput = "No input";
+		Object cruiseYesOrNoInput = "";
 		double finalcruisePriceForAdults = 0;
 		double finalcruisePriceForchildren = 0;
 		int buffetMarker = 0;
 		int noOfDaysOnCruise = 0;
-		int counter = 0;
 		do {
 			System.out.println(
 					"We offer 4 different packages as displayed below. Please enter the cruise that you want to select:\r\n"
@@ -106,9 +105,9 @@ public class CruiseTicketsBookingMain {
 				System.out.println("Please enter your current password: ");
 				String userPassword = scn.next();
 
-				if (cruiseusermodule.checkUserPassword(userPassword)) {
-					useInfo = cruiseusermodule.changeUserInformation();
-					String userinfoUpdate = cruiseusermodule.setUserInfo();
+				if (cruiseusermodule.validateUserPassword(userPassword)) {
+					useInfo = cruiseusermodule.userInputSelection();
+					String userinfoUpdate = cruiseusermodule.userInputSetUserInfo();
 					switch (useInfo) {
 					case "Password":
 						cruiseusermodule.setUserPassword(userinfoUpdate);
@@ -116,16 +115,14 @@ public class CruiseTicketsBookingMain {
 					case "Phone_number":
 						cruiseusermodule.setUserPhonenumber(userinfoUpdate);
 						break;
-
 					case "Email":
 						cruiseusermodule.setUserEmailAddress(userinfoUpdate);
 						break;
-
 					default:
 						System.out.println("You have enetered invalid input");
 						break;
 					}
-					cruiseusermodule.thankyouMessage();
+					cruiseusermodule.thankYouMessage();
 				} else {
 
 					cruiseusermodule.passwordNotCorrect();

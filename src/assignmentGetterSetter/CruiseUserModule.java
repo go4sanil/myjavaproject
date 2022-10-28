@@ -9,7 +9,7 @@ public class CruiseUserModule {
 	private String userPhoneNumber;
 	int passwordCounter = 0;
 	int userInfoCounter = 0;
-	int userInputChangeUserSelection;
+	int userSelection;
 	String returnParameter = null;
 
 	Scanner scn = new Scanner(System.in);
@@ -22,11 +22,11 @@ public class CruiseUserModule {
 		this.userPhoneNumber = userPhoneNumber;
 
 	}
-	
-	CruiseUserModule()
-	{}
 
-	public Boolean checkUserPassword(String userPassword) {
+	CruiseUserModule() {
+	}
+
+	public Boolean validateUserPassword(String userPassword) {
 		if (this.userPassword.equals(userPassword)) {
 			return true;
 		}
@@ -35,20 +35,17 @@ public class CruiseUserModule {
 
 	void setUserPhonenumber(String userInputChangeInfo) {
 		this.userPhoneNumber = userInputChangeInfo;
-		System.out.println("User phone number updated");
 	}
 
 	void setUserEmailAddress(String userInputChangeInfo) {
 		this.userEmailAddress = userInputChangeInfo;
-		System.out.println("User Email address updated");
 	}
 
 	void setUserPassword(String userInputChangeInfo) {
 		this.userPassword = userInputChangeInfo;
-		System.out.println("User password updated");
 	}
 
-	String setUserInfo() {
+	String userInputSetUserInfo() {
 		System.out
 				.println("Please enter the new " + returnParameter + " that you want to be updated in our database: ");
 		String userInputChangeInfo = scn.next();
@@ -56,7 +53,7 @@ public class CruiseUserModule {
 
 	}
 
-	void thankyouMessage() {
+	void thankYouMessage() {
 		System.out.println("Your " + returnParameter + " has been updated in our records \n"
 				+ "Thank you for using our services!");
 
@@ -75,20 +72,20 @@ public class CruiseUserModule {
 
 	}
 
-	public String changeUserInformation() {
+	public String userInputSelection() {
 
 		do {
 			System.out.println("Please enter the information you want to change.\n" + "    1. Password\n"
 					+ "    2. Phone number\n" + "    3. Email");
 
-			userInputChangeUserSelection = scn.nextInt();
-			if (userInputChangeUserSelection == 1) {
+			userSelection = scn.nextInt();
+			if (userSelection == 1) {
 				returnParameter = "Password";
 
-			} else if (userInputChangeUserSelection == 2) {
+			} else if (userSelection == 2) {
 				returnParameter = "Phone_number";
 
-			} else if (userInputChangeUserSelection == 3) {
+			} else if (userSelection == 3) {
 				returnParameter = "Email";
 
 			} else {
@@ -105,8 +102,7 @@ public class CruiseUserModule {
 			}
 		}
 
-		while (!(userInputChangeUserSelection == 1) && !(userInputChangeUserSelection == 2)
-				&& !(userInputChangeUserSelection == 3) && userInfoCounter < 3);
+		while (!(userSelection == 1) && !(userSelection == 2) && !(userSelection == 3) && userInfoCounter < 3);
 		return returnParameter;
 	}
 
