@@ -5,14 +5,14 @@ public class BuyCruiseTicketsMain {
 
 	public static void main(String[] args) {
 
-		BuyCruiseTicket scenicCruise = new BuyCruiseTicket("Scenic_Cruise", 43.99, 12.99, 3);
-		BuyCruiseTicket sunsetCruise = new BuyCruiseTicket("Sunset_Cruise", 52.99, 15.99, 1);
-		BuyCruiseTicket discoveryCruise = new BuyCruiseTicket("Discovery_Cruise", 39.99, 9.99, 4);
-		BuyCruiseTicket mysteryCruise = new BuyCruiseTicket("Mystery_Cruise", 45.99, 12.99, 2);
+		CruiseTicketsBooking scenicCruise = new CruiseTicketsBooking("Scenic_Cruise", 43.99, 12.99, 3);
+		CruiseTicketsBooking sunsetCruise = new CruiseTicketsBooking("Sunset_Cruise", 52.99, 15.99, 1);
+		CruiseTicketsBooking discoveryCruise = new CruiseTicketsBooking("Discovery_Cruise", 39.99, 9.99, 4);
+		CruiseTicketsBooking mysteryCruise = new CruiseTicketsBooking("Mystery_Cruise", 45.99, 12.99, 2);
 
-		BuyCruiseTicket[] buyCruiseTicket = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
+		CruiseTicketsBooking[] buyCruiseTicket = { scenicCruise, sunsetCruise, discoveryCruise, mysteryCruise };
 
-		BuyCruiseTicket methodsBuyCruiseTicket = new BuyCruiseTicket();
+		CruiseTicketsBooking methodsBuyCruiseTicket = new CruiseTicketsBooking();
 
 		Scanner scn = new Scanner(System.in);
 		String cruiseYesOrNoInput = null;

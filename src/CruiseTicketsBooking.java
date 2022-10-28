@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class BuyCruiseTicket {
+public class CruiseTicketsBooking {
 
 	String cruiseName;
 	double cruisePriceForAdults;
@@ -8,7 +8,7 @@ public class BuyCruiseTicket {
 	int cruiseDaysOfStay;
 	Scanner scn = new Scanner(System.in);
 
-	BuyCruiseTicket(String cruiseNAme, double cruisePriceforAdults, double cruisePriceforChildren,
+	CruiseTicketsBooking(String cruiseNAme, double cruisePriceforAdults, double cruisePriceforChildren,
 			int cruiseDaysofStay) {
 		cruiseName = cruiseNAme;
 		cruisePriceForAdults = cruisePriceforAdults;
@@ -17,7 +17,7 @@ public class BuyCruiseTicket {
 
 	}
 
-	BuyCruiseTicket() {
+	CruiseTicketsBooking() {
 	}
 
 	double adultDinnerBuffetMeals = 20.99;
