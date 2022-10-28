@@ -1,0 +1,184 @@
+import java.util.Scanner;
+
+public class BuyCruiseTicket {
+
+	String cruiseName;
+	double cruisePriceForAdults;
+	double cruisePriceForchildren;
+	int cruiseDaysOfStay;
+	private String userEmailAddress;
+	private String userPassword;
+	String userName;
+	private String userPhoneNumber;
+	int passwordCounter = 0;
+	int userInfoCounter = 0;
+	int userInputChangeUserSelection;
+	String returnParameter = null;
+
+	Scanner scn = new Scanner(System.in);
+
+	BuyCruiseTicket(String cruiseNAme, double cruisePriceforAdults, double cruisePriceforChildren,
+			int cruiseDaysofStay) {
+		cruiseName = cruiseNAme;
+		cruisePriceForAdults = cruisePriceforAdults;
+		cruisePriceForchildren = cruisePriceforChildren;
+		cruiseDaysOfStay = cruiseDaysofStay;
+
+	}
+
+	BuyCruiseTicket() {
+	}
+
+	void setUserRegistrationInfo(String userEmailAddress, String userPassword, String userName,
+			String userPhoneNumber) {
+		this.userEmailAddress = userEmailAddress;
+		this.userPassword = userPassword;
+		this.userName = userName;
+		this.userPhoneNumber = userPhoneNumber;
+
+	}
+
+	void setUserInfo() {
+		System.out
+				.println("Please enter the new " + returnParameter + " that you want to be updated in our database: ");
+		String userInputChangeInfo = scn.next();
+		switch (userInputChangeUserSelection) {
+		case 1:
+			this.userPassword = userInputChangeInfo;      //altough this. keyword is not required here, i have just followed a standard format
+			break;
+		case 2:
+			this.userPhoneNumber = userInputChangeInfo;
+			break;
+		case 3:
+			this.userEmailAddress = userInputChangeInfo;
+			break;
+		default:
+			System.out.println("You have entered an invalid input");
+			break;
+
+		}
+	}
+
+	void thankyouMessage() {
+		System.out.println(
+				"Your " + returnParameter + " has been updated in our records \n" + "Thank you for using our services!");
+
+	}
+
+	public Boolean getUserPassword(String userPassword) {
+		if (this.userPassword.equals(userPassword)) {
+			return true;
+		}
+		return false;
+	}
+
+	void passwordNotCorrect() {
+		   passwordCounter++;
+		if (passwordCounter >= 3) {
+			System.out.println("You have reached the maximum number of attempts:Program Terminated\n"+"Please talk to customer desk!");
+			System.exit(0);
+		}
+
+		System.out.println("Your password you have entered is not correct, please try again \n" + "You are left with "
+				+ (3-passwordCounter) + " more attempts");
+
+	}
+
+	public String changeUserInformation() {
+
+		do {
+			System.out.println("Please enter the information you want to change.\n" + "    1. Password\n"
+					+ "    2. Phone number\n" + "    3. Email");
+
+			userInputChangeUserSelection = scn.nextInt();
+			if (userInputChangeUserSelection == 1) {
+				returnParameter = "Password";
+
+			} else if (userInputChangeUserSelection == 2) {
+				returnParameter = "Phone_number";
+
+			} else if (userInputChangeUserSelection == 3) {
+				returnParameter = "Email";
+
+			} else {
+				userInfoCounter++;
+				if (userInfoCounter >= 3) {
+					System.out.println("You have reached the maximum attempts, program terminated\n"
+							+ "Please talk to our customer desk");
+					System.exit(0);
+				}
+				System.out.println("Your input is not correct, please try again \n" + "You are left with"
+						+ (3- userInfoCounter) + " more attempts");
+				returnParameter = "invalid input";
+
+			}
+		}
+
+		while (!(userInputChangeUserSelection == 1) && !(userInputChangeUserSelection == 2)
+				&& !(userInputChangeUserSelection == 3) && userInfoCounter < 3);
+		return returnParameter;
+	}
+
+	double adultDinnerBuffetMeals = 20.99;
+	double kidsDinnerBuffetMeals = 4.99;
+
+	double adultPriceCalculation(double finalcruisePriceForAdults, int noOfDaysInCruise, int userInputNumOfAdults) {
+		double finalAdultPrice = finalcruisePriceForAdults * noOfDaysInCruise * userInputNumOfAdults;
+		return finalAdultPrice;
+	}
+
+	double childPriceCalculation(double finalcruisePriceForChildren, int noOfDaysInCruise, int userInputNumOfChildren) {
+		double finalChildrenPrice = finalcruisePriceForChildren * noOfDaysInCruise * userInputNumOfChildren;
+		return finalChildrenPrice;
+	}
+
+	int childArrayCounterInput(int userInputNumOfChildren) {
+		int childArrayCounter = 0;
+		int[] childArray = new int[userInputNumOfChildren];
+
+		if (userInputNumOfChildren > 0) {
+			for (int j = 0; (j < (userInputNumOfChildren)); j++) {
+				System.out.println("Enter the age of child " + (j + 1));
+				childArray[j] = scn.nextInt();
+				if (childArray[j] > 5) {
+					childArrayCounter++;
+				}
+
+			}
+		}
+		return childArrayCounter;
+	}
+
+	double adultBuffetPriceCalculation(int noOfDaysInCruise, int userInputNumOfAdults, int buffetMarker) {
+		double finalBuffetAdultPrice = adultDinnerBuffetMeals * noOfDaysInCruise * userInputNumOfAdults * buffetMarker;
+		return finalBuffetAdultPrice;
+	}
+
+	double childrenBuffetPriceCalculation(int noOfDaysOnCruise, int userInputNumOfAdults, int buffetMarker) {
+		double finalBuffetAdultPrice = kidsDinnerBuffetMeals * noOfDaysOnCruise * userInputNumOfAdults * buffetMarker;
+		return finalBuffetAdultPrice;
+	}
+
+	void adultAndChildPriceCalculation(double finalAdultPrice, double finalChildrenPrice, double finalBuffetAdultPrice,
+			double finalBuffetChildrenPrice, int userInputNumOfAdults, int childArrayCounter, int buffetMarker) {
+
+		double totalPrice = finalAdultPrice + finalChildrenPrice + finalBuffetAdultPrice + finalBuffetChildrenPrice;
+		System.out.println("Your Package includes:");
+		System.out.println("Scenic Cruise Adults 		@ " + userInputNumOfAdults + "   :" + (finalAdultPrice));
+		if (childArrayCounter > 0) {
+			System.out.println("Scenic Cruise Children above 5 @ " + childArrayCounter + "    :" + finalChildrenPrice);
+		}
+		if (buffetMarker == 1) {
+			System.out.println(
+					"Buffet Special Price Adults	@ " + userInputNumOfAdults + "   :" + finalBuffetAdultPrice);
+		}
+		if (childArrayCounter > 0 && buffetMarker == 1) {
+			System.out.println("Buffet Special Price Children above 5 @ " + childArrayCounter + "    :"
+					+ finalBuffetChildrenPrice);
+		}
+		System.out.println("Total Price      :" + totalPrice);
+		System.out.println("HST	@ 15%      :" + (0.15 * totalPrice));
+		System.out.println("Final Price     :" + ((0.15 * totalPrice) + totalPrice));
+
+	}
+}
