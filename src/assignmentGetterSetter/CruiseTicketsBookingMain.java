@@ -100,23 +100,23 @@ public class CruiseTicketsBookingMain {
 		String userInputChangeUserInfo = scn.next();
 
 		if (userInputChangeUserInfo.equalsIgnoreCase("Y")) {
-			String useInfo = "";
+			String userInput = "";
 			do {
 				System.out.println("Please enter your current password: ");
 				String userPassword = scn.next();
 
 				if (cruiseusermodule.validateUserPassword(userPassword)) {
-					useInfo = cruiseusermodule.userInputSelection();
-					String userinfoUpdate = cruiseusermodule.userInputSetUserInfo();
-					switch (useInfo) {
+					userInput = cruiseusermodule.userInputSelection();
+					String userInfoUpdate = cruiseusermodule.userInputChange();
+					switch (userInput) {
 					case "Password":
-						cruiseusermodule.setUserPassword(userinfoUpdate);
+						cruiseusermodule.setUserPassword(userInfoUpdate);
 						break;
 					case "Phone_number":
-						cruiseusermodule.setUserPhonenumber(userinfoUpdate);
+						cruiseusermodule.setUserPhonenumber(userInfoUpdate);
 						break;
 					case "Email":
-						cruiseusermodule.setUserEmailAddress(userinfoUpdate);
+						cruiseusermodule.setUserEmailAddress(userInfoUpdate);
 						break;
 					default:
 						System.out.println("You have enetered invalid input");
@@ -128,7 +128,7 @@ public class CruiseTicketsBookingMain {
 					cruiseusermodule.passwordNotCorrect();
 
 				}
-			} while (!(useInfo.equals("Password") || useInfo.equals("Email") || useInfo.equals("Phone_number")));
+			} while (!(userInput.equals("Password") || userInput.equals("Email") || userInput.equals("Phone_number")));
 
 		}
 

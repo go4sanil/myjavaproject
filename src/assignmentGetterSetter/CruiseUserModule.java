@@ -45,7 +45,7 @@ public class CruiseUserModule {
 		this.userPassword = userInputChangeInfo;
 	}
 
-	String userInputSetUserInfo() {
+	String userInputChange() {
 		System.out
 				.println("Please enter the new " + returnParameter + " that you want to be updated in our database: ");
 		String userInputChangeInfo = scn.next();
