@@ -1,3 +1,5 @@
+
+
 import java.util.Scanner;
 
 public class CruiseTicketsBooking {
@@ -6,6 +8,7 @@ public class CruiseTicketsBooking {
 	double cruisePriceForAdults;
 	double cruisePriceForchildren;
 	int cruiseDaysOfStay;
+
 	Scanner scn = new Scanner(System.in);
 
 	CruiseTicketsBooking(String cruiseNAme, double cruisePriceforAdults, double cruisePriceforChildren,
@@ -50,7 +53,7 @@ public class CruiseTicketsBooking {
 		return childArrayCounter;
 	}
 
-	double adultBuffetPriceCalculation(int noOfDaysInCruise, int userInputNumOfAdults,int buffetMarker) {
+	double adultBuffetPriceCalculation(int noOfDaysInCruise, int userInputNumOfAdults, int buffetMarker) {
 		double finalBuffetAdultPrice = adultDinnerBuffetMeals * noOfDaysInCruise * userInputNumOfAdults * buffetMarker;
 		return finalBuffetAdultPrice;
 	}
@@ -65,20 +68,20 @@ public class CruiseTicketsBooking {
 
 		double totalPrice = finalAdultPrice + finalChildrenPrice + finalBuffetAdultPrice + finalBuffetChildrenPrice;
 		System.out.println("Your Package includes:");
-		System.out.println("Scenic Cruise Adults 		@ " + userInputNumOfAdults + "   :"
-				+ (finalAdultPrice));
+		System.out.println("Scenic Cruise Adults @ " + userInputNumOfAdults + "   :" + (finalAdultPrice));
 		if (childArrayCounter > 0) {
 			System.out.println("Scenic Cruise Children above 5 @ " + childArrayCounter + "    :" + finalChildrenPrice);
 		}
 		if (buffetMarker == 1) {
-			System.out.println("Buffet Special Price Adults	@ " + userInputNumOfAdults + "   :" + finalBuffetAdultPrice);
+			System.out
+					.println("Buffet Special Price Adults @ " + userInputNumOfAdults + "   :" + finalBuffetAdultPrice);
 		}
 		if (childArrayCounter > 0 && buffetMarker == 1) {
 			System.out.println("Buffet Special Price Children above 5 @ " + childArrayCounter + "    :"
 					+ finalBuffetChildrenPrice);
 		}
 		System.out.println("Total Price      :" + totalPrice);
-		System.out.println("HST	@ 15%      :" + (0.15 * totalPrice));
+		System.out.println("HST @ 15%      :" + (0.15 * totalPrice));
 		System.out.println("Final Price     :" + ((0.15 * totalPrice) + totalPrice));
 
 	}
