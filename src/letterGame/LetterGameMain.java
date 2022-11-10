@@ -19,28 +19,28 @@ public class LetterGameMain {
 
 		methodclass.importStudentList();
 		String randomNameChoosen = methodclass.randomStudentSelection().toLowerCase();
-		String[][] updatedStudentArrray = methodclass.setStudentNameArray(randomNameChoosen);
+		String[][] updatedStudentArray = methodclass.setStudentNameArray(randomNameChoosen);
 
 		do {
 			System.out.print("You are guessing : ");
-			methodclass.getStudentNameArray(updatedStudentArrray);
+			methodclass.getStudentNameArray(updatedStudentArray);
 
 			System.out
 					.println("\n" + "You have guessed (" + wrongInputCounter + ") wrong Letter/s  " + wrongInputString);
 
 			do {
-				userInput = methodclass.checkUserInputIsValid(updatedStudentArrray);
-			} while (methodclass.checkDuplicateEntry(updatedStudentArrray, userInput)
+				userInput = methodclass.checkUserInputIsValid(updatedStudentArray);
+			} while (methodclass.checkDuplicateEntry(updatedStudentArray, userInput)
 					|| methodclass.checkDuplicateEntry(wrongInputString, userInput)
 
 			);
 
-			isInputCorrect = methodclass.updateStudentNameArray(userInput, updatedStudentArrray);
+			isInputCorrect = methodclass.updateStudentNameArray(userInput, updatedStudentArray);
 
 			if (isInputCorrect) {
 				isInputCorrect = false;
 			} else {
-				wrongInputCounter = methodclass.wrongcounterCheck(wrongInputCounter);
+				wrongInputCounter = methodclass.wrongCounterCheck(wrongInputCounter);
 				wrongInputString = methodclass.concatWrongInputStrings(userInput);
 				if (wrongInputCounter >= maxNumOfAttempts) {
 					System.out.println(
@@ -49,7 +49,7 @@ public class LetterGameMain {
 				}
 			}
 
-			hasPlayerWon = methodclass.hasPlayerWon(updatedStudentArrray, randomNameChoosen);
+			hasPlayerWon = methodclass.hasPlayerWon(updatedStudentArray, randomNameChoosen);
 
 		} while (wrongInputCounter < maxNumOfAttempts && !randomNameChoosen.equals(userInput) && !hasPlayerWon);
 

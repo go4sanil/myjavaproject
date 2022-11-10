@@ -20,18 +20,18 @@ public class LetterGameMethods {
 
 	public void importStudentList() throws FileNotFoundException {
 
-		Scanner s = new Scanner(new File("C:\\Users\\Sakshi's PC\\Desktop\\NameList.txt"));
+		Scanner sc = new Scanner(new File("C:\\Users\\Sakshi's PC\\Desktop\\NameList.txt"));
 		myList = new ArrayList<String>();
-		while (s.hasNext()) {
-			myList.add(s.next());
+		while (sc.hasNext()) {
+			myList.add(sc.next());
 		}
-		s.close();
+		sc.close();
 	}
 
 	public String randomStudentSelection() {
 
-		Random r = new Random();
-		int randomItem = r.nextInt(myList.size());
+		Random randomStudent = new Random();
+		int randomItem = randomStudent.nextInt(myList.size());
 		String randomNameSelected = myList.get(randomItem);
 		//System.out.println(randomNameSelected);
 		return randomNameSelected;
@@ -40,12 +40,12 @@ public class LetterGameMethods {
 
 	public String[][] setStudentNameArray(String randomNameChoosen) {
 		char[] randomNameCharArray = randomNameChoosen.toCharArray();
-		int arr = randomNameChoosen.length();
+		int arrayRowLength = randomNameChoosen.length();
 
-		String[][] studentNameArray = new String[arr][arrayColmLength];
+		String[][] studentNameArray = new String[arrayRowLength][arrayColmLength];
 
 		for (int i = 0; i < studentNameArray.length; i++) {
-			studentNameArray[i][0] = "_";
+			studentNameArray[i][0] = "*";
 			studentNameArray[i][1] = String.valueOf(randomNameCharArray[i]);
 
 		}
@@ -138,7 +138,7 @@ public class LetterGameMethods {
 		return isInputCorrect;
 	}
 
-	public int wrongcounterCheck(int counter) {
+	public int wrongCounterCheck(int counter) {
 		counter++;
 		return counter;
 
